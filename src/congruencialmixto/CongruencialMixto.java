@@ -23,7 +23,6 @@ public class CongruencialMixto {
         int c; // Constante aditiva
         int x = 0; // Semilla
         int m, g; // modulo
-
         int opcion = 0;
         boolean verificacion = true;
         do {
@@ -195,17 +194,20 @@ public class CongruencialMixto {
     */
     public static void calcular(int x, int a, int c, int m) {
         int r = 0; // Resultado
-        int i = 0; // Contador
+        int i = 0, j=0; // Contador
         int x2 = x;
         double aux1, aux2;
         System.out.println("n\tX\t(ax + c)/m\tXn\tNumerosUniformes");
-        while (r != x2) {
-            r = (a * x + c) % m;
+        while (i < m) {
+            r = ((a * x) + c) % m;
             aux1 = (a * x + c) / m;
             aux2 = r % m;
             System.out.println(i + "\t" + x + "\t" + (int) aux1 + "+" + (int) aux2 + "/" + (int) m + "\t\t" + (int) r + "\t" + (double) r / m);
             x = (int) r;
+            if(r == x2)
+                j++;
             i++;
         }
+        System.out.println("CICLOS: " + j);
     }
 }
